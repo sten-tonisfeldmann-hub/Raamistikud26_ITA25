@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon -e js,ejs index.js",
     "start": "node index.js"
   },
   "dependencies": {
@@ -15,7 +15,6 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14",
     "vite": "^8.2.2"
   }
 }

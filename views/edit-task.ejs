@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Edit task</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <style>
+            body {
+                background: #f3f3f3;
+            }
+            .card {
+                margin-top: 20px;
+            }
+            .error-message {
+                background: #ffebee;
+                border: 1px solid #ef9a9a;
+                color: #b71c1c;
+                padding: 8px 12px;
+                border-radius: 4px;
+                margin-bottom: 12px;
+                font-size: 14px;
+            }
+            .btn-update {
+                background-color: #00a5a5 !important;
+                margin-right: 10px;
+            }
+            .btn-cancel {
+                color: #00a5a5 !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Todo List</span>
+
+                            <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+                                <div class="error-message"><%= errorMessage %></div>
+                            <% } %>
+
+                            <form method="post" action="/update-task/<%= task.id %>">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="task" type="text" name="task" value="<%= task.task %>">
+                                        <label for="task" class="active">Task</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn btn-update waves-effect waves-light" type="submit">Update Task</button>
+                                        <a href="/" class="btn btn-flat btn-cancel">Cancel</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>
